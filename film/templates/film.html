@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Watch&rate: film {{ film.name }}{% endblock title %}
+
+{% block content %}
+  <div class="col-lg-6 col-md-8">
+    <div class="header-film row">
+      <h4 class="p-0 m-0 name-film">{{ film.name }}</h4>
+    </div>
+
+    <div class="row">
+      <div>
+        <img class="img-fluid film-avatar" src="{% get_media_prefix %}{{ film.image }}">
+
+        <form>
+          <div class="rate-film-block">
+            <input class="form-control but input-rating mr-sm-2" id="rating-input">
+            <button class="but but-pretty" href="" type="button">Rate</button>
+          </div>
+        </form>
+        <form>
+          <button class="but" href="" type="button">Add to favorites</button>
+        </form>
+      </div>
+
+      <div class="table-film-block">
+        <table class="table-film">
+          <tbody>
+          <tr>
+            <td class="info-film-left">Year</td>
+            <td class="info-film-right">{{ film.year }}</td>
+          </tr>
+
+          <tr>
+            <td class="info-film-left">Country</td>
+            <td class="info-film-right">
+              {% for c in film.country.all %}
+                {{ c.name }}
+              {% endfor %}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="info-film-left">Producer</td>
+            <td class="info-film-right">
+              {% for p in film.producer.all %}
+                {{ p.first_name }}{{ p.last_name }}
+              {% endfor %}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="info-film-left">Genre</td>
+            <td class="info-film-right">
+              {% for g in film.genre.all %}
+                {{ g.name }}
+              {% endfor %}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="info-film-left">Age</td>
+            <td class="info-film-right">{{ film.age }}</td>
+          </tr>
+
+          <tr>
+            <td class="info-film-left">Time</td>
+            <td class="info-film-right">{{ film.time }}</td>
+          </tr>
+
+          <tr>
+            <td class="info-film-left">Plot</td>
+            <td class="info-film-right">{{ film.plot }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

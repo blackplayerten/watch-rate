@@ -1,0 +1,384 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  height: auto;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.navbar-color {
+  background-color: #4682B4;
+}
+
+.head-site {
+  font-weight: bold;
+  color: #FFF0F5 !important;
+  font-family: 'Futura', sans-serif;
+}
+
+.head-site:hover {
+  font-weight: bold;
+  outline: none !important;
+  color: inherit;
+}
+
+input.search-field{
+  display: inline-block;
+  border-radius: 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: #F8F8FF;
+  outline: none !important;
+}
+
+#search-input{
+  height: 50%;
+  width: 400px;
+  max-width: 70%;
+}
+
+.search-but-style {
+  display: inline-block;
+  padding: 3px;
+  height: 50%;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  outline: none !important;
+  text-align: center;
+  font-size: 16px;
+  color: #191970;
+  background-color: #F8F8FF;
+  font-family: 'Futura';
+}
+
+.usr{
+  witdh: 300px;
+  height: 40px;
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+}
+
+.usr-text-block{
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  margin-top: -3px;
+}
+
+.usr-item{
+  margin: 0px 2px;
+}
+
+.user-name{
+  margin-top: 3px;
+  line-height: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #F8F8FF !important;
+  font-family: 'Futura', sans-serif;
+}
+
+.user-name:hover{
+  outline: none !important;
+  color: inherit;
+  text-decoration: none;
+}
+
+.user-item{
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: lighter;
+  color: #F8F8FF !important;
+  font-family: 'Futura', sans-serif;
+}
+
+.user-item:hover{
+  text-decoration: none;
+  outline: none !important;
+  color: inherit;
+}
+
+.avatar{
+  width: auto;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.right-block{
+  position: relative;
+}
+
+.card-body-popular {
+  text-align: center;
+}
+
+.film-block{
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+  border-radius: 10px;
+  width: 15rem;
+  margin-left: 20px;
+  background-color: #FFF0F5;
+}
+
+.name-film-right-block {
+  margin-left: 10px;
+  margin-right: 15px;
+  text-decoration: none;
+  color: #2F4F4F;
+  font-family: 'Futura', sans-serif;
+}
+
+.name-film-right-block:hover {
+ text-decoration: none;
+ color: #2F4F4F;
+ font-family: "Futura", sans-serif;
+}
+
+.card-body-watched {
+  text-align: center;
+}
+
+.last-watched-block-text {
+  text-align: center;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  color: #4682B4 !important;
+}
+
+.last-watched-block-text:hover {
+  outline: none !important;
+  color: inherit;
+}
+
+li.in-last-watched {
+  margin-top: 5px;
+}
+
+ul.last-watched {
+  margin-left: 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.la-watch{
+  padding: 5px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: lighter;
+  color: #2F4F4F;
+  font-family: 'Futura', sans-serif;
+}
+
+.la-watch:hover{
+  padding: 5px;
+  line-height: 20px;
+  height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #2F4F4F;
+  font-family: 'Futura', sans-serif;
+}
+
+.name-film {
+  font-weight: bold;
+  margin-right: 15px;
+  text-decoration: none;
+  color: #191970;
+  font-family: 'Futura', sans-serif;
+}
+
+.name-film:hover {
+ outline: none !important;
+ color: inherit;
+}
+
+.header-film{
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+  line-height: 20px;
+}
+
+.film-avatar {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  width: 150px;
+  margin-left: 10px;
+  margin-right: 0px;
+  margin-top: 20px;
+}
+
+.rate-film-block {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+input.input-rating{
+  display: inline-block;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+#rating-input{
+  height: 50%;
+  width: 80px;
+  max-width: 70%;
+  outline: none !important;
+  border-color: #ffcacf;
+}
+
+.table-film-block {
+  display: flex;
+  justify-content: left;
+  max-width: 500px;
+}
+
+.table-film{
+  border-collapse: separate;
+  border-spacing: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.info-film-left {
+  border-radius: 10px;
+  background-color: #FFFAFA;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  font-family: sans-serif;
+}
+
+.info-film-right {
+  margin-top: 30px;
+  text-align: left;
+  color: black !important;
+  font-family: 'Actor', sans-serif;
+}
+
+.info-film-right:hover {
+  outline: none !important;
+  color: inherit;
+}
+
+.intro-site {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  text-align: center;
+  margin-top: 20%;
+}
+
+.link-watch-rate {
+  text-decoration: none;
+  color: #191970 !important;
+  font-weight: bold;
+  border-color: black;
+  font-family: 'Futura', sans-serif;
+}
+
+.link-watch-rate:hover {
+  outline: none !important;
+  color: inherit;
+  text-decoration: none;
+}
+
+.text-header {
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  font-family: sans-serif;
+}
+
+.login {
+  width: 300px;
+  text-align: left;
+  color: #4682B4;
+  font-weight: bold;
+}
+
+#login-pass {
+  border-radius: 10px;
+  height: 100%;
+  width: 200px;
+  background-color: #FFFAFA;
+}
+
+.but {
+  height: 40px;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: black !important;
+  font-family: sans-serif;
+  font-weight: 400;
+  outline: none !important;
+  white-space: nowrap;
+  border: none;
+}
+
+.but:hover {
+  outline: none !important;
+  color: inherit;
+  text-decoration:none;
+}
+
+.but-pretty {
+  border: 1px solid #ffcacf;
+  background-color: #FFF0F5;
+}
+
+.choose-avatar {
+  margin-top: 20px;
+}
+
+.cat-ava-film {
+  max-width: 300px;
+  max-height: 200px;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.cat-plot {
+  text-align: left;
+}
+
+.catalog {
+  margin-top: 35px;
+  justify-content: space-around;
+}
+
+.catalog-elem {
+  min-width: 40%;
+  max-width: 40%;
+  margin-bottom: 20px;
+}
+
+.line-separator {
+  height: 1px;
+  border-radius: 10px;
+  background-color: #CCC0C4;
+  margin: 30px 0;
+}

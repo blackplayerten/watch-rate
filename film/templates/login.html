@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Watch&rate: login{% endblock title %}
+
+{% block content %}
+  <div class="col-lg-6 col-md-8">
+    <div class="header-film row">
+      <h4 class="p-0 m-0 name-film">Log In</h4>
+    </div>
+
+    <div class="header-film row">
+      <form class="login">
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label login">Login</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="login-pass" placeholder="login">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label login">Password</label>
+          <div class="col-sm-5">
+            <input type="password" class="form-control" id="login-pass" placeholder="password">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <a class="but but-pretty" href="{% url "profile" %}">Sign in</a>
+          <a class="but" href="{% url "registration" %}">Create new account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
