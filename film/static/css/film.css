@@ -382,3 +382,11 @@ input.input-rating{
   background-color: #CCC0C4;
   margin: 30px 0;
 }
+
+.errors {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #ffcacf !important;
+  font-family: sans-serif;
+  font-weight: 400;
+}
