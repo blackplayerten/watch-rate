@@ -10,36 +10,36 @@
 
     <div class="header-film row">
       <form class="login" action="{% url 'login' %}" method="post">
-      {% csrf_token %}
-      {% if next %}
-        <strong>
-            <div class="errors">Please login to see the catalog</div>
-        </strong>
-      {% endif %}
-      {% if form.errors %}
-        {% for error in form.non_field_errors %}
-          <div class="errors">
-            <strong>{{ error|escape }}</strong>
+        {% csrf_token %}
+        {% if next %}
+          <strong>
+            <div class="errors">Please login to see the {{ next }}</div>
+          </strong>
+        {% endif %}
+        {% if form.errors %}
+          {% for error in form.non_field_errors %}
+            <div class="errors">
+              <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+        {% endif %}
+        {% for field in form %}
+          <div class="form-group row">
+            <label for="{{ field.id_for_label }}" class="col-sm-4 col-form-label login">{{ field.label }}</label>
+            {% for error in field.errors %}
+              <div class="errors">
+                <strong>{{ error|escape }}</strong>
+              </div>
+            {% endfor %}
+            <div class="col-sm-5">{{ field.as_widget }}</div>
           </div>
         {% endfor %}
-      {% endif %}
-      {% for field in form %}
-                <div class="form-group row">
-        <label for="{{ field.id_for_label }}" class="col-sm-4 col-form-label login">{{ field.label }}</label>
-        {% for error in field.errors %}
-          <div class="errors">
-            <strong>{{ error|escape }}</strong>
-          </div>
-        {% endfor %}
-                <div class="col-sm-5">{{ field.as_widget }}</div>
-                </div>
-      {% endfor %}
-      <input type="hidden" name="next" value="{{ next }}" />
-      <div class="form-group row">
-        <button class="but but-pretty" type="submit">Sign in</button>
-        <a class="but" href="{% url "registration" %}">Create new account</a>
-      </div>
-    </form>
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <div class="form-group row">
+          <button class="but but-pretty" type="submit">Sign in</button>
+          <a class="but" href="{% url "registration" %}">Create new account</a>
+        </div>
+      </form>
     </div>
   </div>
 {% endblock content %}

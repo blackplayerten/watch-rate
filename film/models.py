@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    avatar = models.ImageField()
+    avatar = models.ImageField(blank=True, upload_to='img', default='img/ketnipz.png')
     favorite_films = models.ManyToManyField(to='Film')
 
 

@@ -9,38 +9,34 @@
     </div>
 
     <div class="header-film row">
-      <form class="login">
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label login">Login</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" id="login-pass" placeholder="login">
+      <form class="login" action="{% url 'settings' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if next %}
+          <strong>
+            <div class="errors">Please check your data</div>
+          </strong>
+        {% endif %}
+        {% if form.errors %}
+          {% for error in form.non_field_errors %}
+            <div class="errors">
+              <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+        {% endif %}
+        {% for field in form %}
+          <div class="form-group row">
+            <label for="{{ field.id_for_label }}" class="col-sm-6 col-form-label login">{{ field.label }}</label>
+            {% for error in field.errors %}
+              <div class="errors">
+                <strong>{{ error|escape }}</strong>
+              </div>
+            {% endfor %}
+            <div class="col-sm-5"> {{ field.as_widget }} </div>
           </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label login">E-mail</label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" id="login-pass" placeholder="e-mail">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label login">Password</label>
-          <div class="col-sm-5">
-            <input type="password" class="form-control" id="login-pass" placeholder="password">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label login">Avatar</label>
-          <div class="col-sm-5">
-            <img src="{% static "img/ketnipz.png" %}" class="avatar">
-            <input class="choose-avatar" type="file" id="Avatar" placeholder="">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <a class="but but-pretty" href="{% url "profile" %}">Save</a>
+        {% endfor %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <div class="col-sm-5 form-group row">
+          <button class="but but-pretty" type="submit">Save</button>
         </div>
       </form>
     </div>

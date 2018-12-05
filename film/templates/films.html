@@ -6,28 +6,33 @@
   <div class="col-lg-6 col-md-8">
     <div class="header-film row">
       <h4 class="p-0 m-0 name-film">Catalog</h4>
+      <a class="but but-pretty" href="">&#10133</a>
     </div>
-    {% for film in film_list %}
-      {% include 'cardfilm.html' %}
-    {% empty %}
-      <h1>Нет фильмов</h1>
-    {% endfor %}
-  </div>
-  <div class="col-md-3 col-lg-2">
-    <div class="right-block">
-      <div class="film-block">
-        <div class="card-body card-body-watched">
-          <h5 class="last-watched-block-text" href="">Top films</h5>
-          <ul class="last-watched">
-            {% for film in top_films %}
-              <li class="in-last-watched">
-                <a class="la-watch" href="{% url 'film' film.slug %}">{{ film.name }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
+
+    <div class="row catalog">
+      {% for film in film_list %}
+        {% include 'cardfilm.html' %}
+      {% empty %}
+        <h1 class="errors">Пока в каталоге нет фильмов, но вы можете добавить их</h1>
+      {% endfor %}
     </div>
   </div>
+
+  {#  <div class="col-md-3 col-lg-2">#}
+  {#    <div class="right-block">#}
+  {#      <div class="film-block">#}
+  {#        <div class="card-body card-body-watched">#}
+  {#          <h5 class="last-watched-block-text" href="">Top films</h5>#}
+  {#          <ul class="last-watched">#}
+  {#            {% for film in top_films %}#}
+  {#              <li class="in-last-watched">#}
+  {#                <a class="la-watch" href="{% url 'film' film.slug %}">{{ film.name }}</a>#}
+  {#              </li>#}
+  {#            {% endfor %}#}
+  {#          </ul>#}
+  {#        </div>#}
+  {#      </div>#}
+  {#    </div>#}
+  {#  </div>#}
 {% endblock content %}
 
