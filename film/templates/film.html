@@ -7,11 +7,13 @@
     <div class="header-film row">
       <h4 class="p-0 m-0 name-film">{{ film.name }}</h4>
     </div>
-
     <div class="row">
       <div>
-        <img class="img-fluid film-avatar" src="{% get_media_prefix %}{{ film.image }}">
-
+        {% if film.image %}
+          <img class="img-fluid film-avatar" id="image_film" src="{% get_media_prefix %}{{ film.image }}" alt="">
+        {% else %}
+          <img class="img-fluid film-avatar" id="image_film" src="{% static "img/no_picture.png" %}" alt="">
+        {% endif %}
         {#        <form>#}
         {#          <div class="rate-film-block">#}
         {#            <input class="form-control but input-rating mr-sm-2" id="rating-input">#}

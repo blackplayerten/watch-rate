@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    avatar = models.ImageField(blank=True, upload_to='img', default='img/ketnipz.png')
+    avatar = models.ImageField(blank=True, upload_to='img')
     favorite_films = models.ManyToManyField(to='Film')
 
 
@@ -16,11 +16,11 @@ class Film(models.Model):
     country = models.ManyToManyField(to='Country')
     genre = models.ManyToManyField(to='Genre')
     actors = models.ManyToManyField(to='Person', related_name='m2m_actors')
-    age = models.IntegerField()
+    age = models.IntegerField(blank=True, null=True)
     time = models.CharField(max_length=16)
-    user_rating = models.FloatField(blank=True)
-    plot = models.TextField()
-    image = models.ImageField(blank=True)
+    user_rating = models.IntegerField(blank=True, null=True)
+    plot = models.TextField(blank=True)
+    image = models.ImageField(blank=True, null=True, upload_to='img')
 
     def __str__(self):
         return self.name

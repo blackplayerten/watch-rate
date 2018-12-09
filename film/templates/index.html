@@ -6,12 +6,11 @@
   <div class="col-lg-6 col-md-8">
     <h1 class="intro-site link-watch-rate" href="">Watch & rate</h1>
     <div>
-      <p class="text-header">
-        <button class="but"><a class="but" href="{% url "registration" %}">Зарегистрируйтесь</a></button>
-        или
-        <button class="but"><a class="but" href="{% url "login" %}">выполните вход</a></button>
-        <br>чтобы увидеть каталог, узнать информацию о фильмах и добавить их в избранное
-      </p>
+      <h2 class="text-header">
+        <a class="but but-pretty" href="{% url 'registration' %}">sign up</a> or
+        <a class="but but-pretty" href="{% url 'login' %}">sign in</a>
+        <br>to see the catalog, find out information about the films, add them to favorites category or like it!
+      </h2>
     </div>
   </div>
 {% endblock content %}

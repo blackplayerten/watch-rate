@@ -1,7 +1,7 @@
 *{
   margin: 0px;
   padding: 0px;
-  height: auto;
+  height: border-box;
 }
 
 html {
@@ -9,13 +9,26 @@ html {
   min-height: 100%;
 }
 
+h2 {
+  font-size: 23px !important;
+  line-height: 50px !important;
+  text-align: center;
+  font-weight: lighter !important;
+  font-family: "Futura", sans-serif; !important;
+  color: #264d70 !important;
+}
+
 .navbar-color {
-  background-color: #4682B4;
+  background-color: #4682b4;
+}
+
+.site-color {
+  background-color: #f7fcff;
 }
 
 .head-site {
   font-weight: bold;
-  color: #FFF0F5 !important;
+  color: #ffffff !important;
   font-family: 'Futura', sans-serif;
 }
 
@@ -25,42 +38,12 @@ html {
   color: inherit;
 }
 
-input.search-field{
-  display: inline-block;
-  border-radius: 15px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  background-color: #F8F8FF;
-  outline: none !important;
-}
-
-#search-input{
-  height: 50%;
-  width: 400px;
-  max-width: 70%;
-}
-
-.search-but-style {
-  display: inline-block;
-  padding: 3px;
-  height: 50%;
-  border-radius: 15px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  outline: none !important;
-  text-align: center;
-  font-size: 16px;
-  color: #191970;
-  background-color: #F8F8FF;
-  font-family: 'Futura';
-}
-
-.usr{
-  witdh: 300px;
+.usr {
   height: 40px;
-  padding: 0px;
-  margin: 0px;
-  display: inline-block;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
 }
 
 .usr-text-block{
@@ -81,7 +64,7 @@ input.search-field{
   line-height: 20px;
   font-weight: bold;
   font-size: 14px;
-  color: #F8F8FF !important;
+  color: #ffeff2 !important;
   font-family: 'Futura', sans-serif;
 }
 
@@ -95,7 +78,7 @@ input.search-field{
   line-height: 20px;
   font-size: 14px;
   font-weight: lighter;
-  color: #F8F8FF !important;
+  color: #f8f8ff !important;
   font-family: 'Futura', sans-serif;
 }
 
@@ -106,7 +89,7 @@ input.search-field{
 }
 
 .avatar{
-  width: auto;
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   display: inline-block;
@@ -114,90 +97,11 @@ input.search-field{
   margin-right: 10px;
 }
 
-.right-block{
-  position: relative;
-}
-
-.card-body-popular {
-  text-align: center;
-}
-
-.film-block{
-  display: flex;
-  justify-content: right;
-  margin-top: 20px;
-  border-radius: 10px;
-  width: 15rem;
-  margin-left: 20px;
-  background-color: #FFF0F5;
-}
-
-.name-film-right-block {
-  margin-left: 10px;
-  margin-right: 15px;
-  text-decoration: none;
-  color: #2F4F4F;
-  font-family: 'Futura', sans-serif;
-}
-
-.name-film-right-block:hover {
- text-decoration: none;
- color: #2F4F4F;
- font-family: "Futura", sans-serif;
-}
-
-.card-body-watched {
-  text-align: center;
-}
-
-.last-watched-block-text {
-  text-align: center;
-  margin-bottom: 10px;
-  text-decoration: underline;
-  color: #4682B4 !important;
-}
-
-.last-watched-block-text:hover {
-  outline: none !important;
-  color: inherit;
-}
-
-li.in-last-watched {
-  margin-top: 5px;
-}
-
-ul.last-watched {
-  margin-left: 0px;
-  padding-left: 0px;
-  list-style: none;
-}
-
-.la-watch{
-  padding: 5px;
-  height: 20px;
-  line-height: 20px;
-  font-size: 16px;
-  font-weight: lighter;
-  color: #2F4F4F;
-  font-family: 'Futura', sans-serif;
-}
-
-.la-watch:hover{
-  padding: 5px;
-  line-height: 20px;
-  height: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #2F4F4F;
-  font-family: 'Futura', sans-serif;
-}
-
 .name-film {
   font-weight: bold;
   margin-right: 15px;
   text-decoration: none;
-  color: #191970;
+  color: #264d70 !important;
   font-family: 'Futura', sans-serif;
 }
 
@@ -233,20 +137,6 @@ ul.last-watched {
   margin-top: 10px;
 }
 
-input.input-rating{
-  display: inline-block;
-  border-radius: 10px;
-  background-color: #ffffff;
-}
-
-#rating-input{
-  height: 50%;
-  width: 80px;
-  max-width: 70%;
-  outline: none !important;
-  border-color: #ffcacf;
-}
-
 .table-film-block {
   display: flex;
   justify-content: left;
@@ -262,7 +152,7 @@ input.input-rating{
 
 .info-film-left {
   border-radius: 10px;
-  background-color: #FFFAFA;
+  background-color: #fffafa;
   padding: 8px;
   text-align: center;
   font-size: 14px;
@@ -292,7 +182,7 @@ input.input-rating{
 
 .link-watch-rate {
   text-decoration: none;
-  color: #191970 !important;
+  color: #264d70 !important;
   font-weight: bold;
   border-color: black;
   font-family: 'Futura', sans-serif;
@@ -304,35 +194,49 @@ input.input-rating{
   text-decoration: none;
 }
 
-.text-header {
-  text-align: center;
-  font-size: 14px;
-  color: black;
-  font-family: sans-serif;
-}
-
 .login {
   width: 300px;
   text-align: left;
-  color: #4682B4;
+  color: #4682b4;
   font-weight: bold;
 }
 
 #login-pass {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
   border-radius: 10px;
   width: 200px;
-  background-color: #FFFAFA;
+  background-color: #fffafa;
+
+}
+
+#staticLogin:focus {
+  color: #ffffff;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#email:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 1px;
+  border-color: #264d70 !important;
 }
 
 .but {
+  margin-left: 10px;
+  margin-right: 10px;
   height: 40px;
   padding: 8px;
   border-radius: 10px;
   font-size: 16px;
-  color: black !important;
+  color: #5b80b2;
+  background-color: #ffffff;
   font-family: sans-serif;
   font-weight: 400;
-  outline: none !important;
   white-space: nowrap;
   border: none;
 }
@@ -343,13 +247,19 @@ input.input-rating{
   text-decoration:none;
 }
 
+.but:focus {
+  /*box-shadow: 0 0 1px #ffffff !important;*/
+  outline: none;
+}
+
 .but-pretty {
-  border: 1px solid #ffcacf;
-  background-color: #FFF0F5;
+  color: #ffffff !important;
+  border: 1px solid #fcb9bf;
+  background-color: #ff907f;
 }
 
 .choose-avatar {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .cat-ava-film {
@@ -370,27 +280,27 @@ input.input-rating{
 }
 
 .catalog-elem {
-  min-width: 40%;
-  max-width: 40%;
+  width: 40%;
+  max-width: 200px;
   margin-bottom: 20px;
 }
 
 .line-separator {
   height: 1px;
   border-radius: 10px;
-  background-color: #CCC0C4;
+  background-color: #ccc0c4;
   margin: 30px;
 }
 
 .errors {
   margin-bottom: 20px;
   font-size: 16px;
-  color: #ffcacf !important;
+  color: #ff838e !important;
   font-family: sans-serif;
   font-weight: 400;
 }
 
-#staticLogin:focus{
-  outline: none !important;
-  box-shadow: none !important;
+.film_form {
+  color: #4682b4;
+  font-weight: bold;
 }

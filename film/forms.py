@@ -1,5 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm, UsernameField, UserCreationForm, UserChangeForm
 from django import forms
+from django.utils.text import slugify
+
 from . import models
 
 
@@ -39,7 +41,7 @@ class CreateAccount(UserCreationForm):
     )
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={
-            'autofocus': 'true', 'class': 'form-control',
+            'class': 'form-control',
             'placeholder': 'e-mail',
             'id': 'login-pass',
         })
@@ -133,7 +135,98 @@ class SettingsForm(forms.ModelForm):
         user = super().save(commit=False)
         new_pass = self.cleaned_data.get('password1')
         if new_pass != '':
-            user.set_password()
+            user.set_password(new_pass)
         if commit:
             user.save()
         return user
+
+
+class AddFilmForm(forms.ModelForm):
+    name = forms.CharField(
+        label='Name',
+        min_length=4,
+        max_length=100,
+    ),
+
+    producer = forms.ModelMultipleChoiceField(
+        label='Producer',
+        queryset=models.Person.objects.filter(role__name='Producer').all(),
+        widget=forms.SelectMultiple(attrs={
+            'class': 'form-control',
+        }),
+        required=False,
+    )
+    country = forms.ModelMultipleChoiceField(
+        label='Country',
+        queryset=models.Country.objects.all(),
+        widget=forms.SelectMultiple(attrs={
+            'class': 'form-control',
+        }),
+        required=False,
+    )
+    genre = forms.ModelMultipleChoiceField(
+        label='Genre',
+        queryset=models.Genre.objects.all(),
+        widget=forms.SelectMultiple(attrs={
+            'class': 'form-control',
+        }),
+        required=False,
+    )
+    actors = forms.ModelMultipleChoiceField(
+        label='Actors',
+        queryset=models.Person.objects.filter(role__name='Актер').all(),
+        widget=forms.SelectMultiple(attrs={
+            'class': 'form-control',
+        }),
+        required=False,
+    )
+    # user_rating = forms.IntegerField(
+    #     label='User rating',
+    #     max_value=10,
+    #     required=False,
+    # ),
+
+    def save(self, commit=True):
+        film = super().save(commit)
+        if commit:
+            film.slug = slugify(str(film.pk) + "-" + film.name)
+            film.save()
+        return film
+
+    class Meta:
+        model = models.Film
+        fields = ['name', 'producer', 'year', 'country', 'genre', 'actors', 'age', 'time', 'plot', 'image', ]
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',
+            }),
+            'year': forms.DateInput(attrs={
+                'class': 'form-control',
+            }),
+            'country': forms.TextInput(attrs={
+                'class': 'form-control',
+             }),
+            'genre': forms.TextInput(attrs={
+                'class': 'form-control',
+            }),
+            'actors': forms.TextInput(attrs={
+                'class': 'form-control',
+            }),
+            'age': forms.NumberInput(attrs={
+                'class': 'form-control',
+            }),
+            'time': forms.TextInput(attrs={
+                'class': 'form-control',
+            }),
+            'plot': forms.TextInput(attrs={
+                'class': 'form-control',
+            }),
+            # 'user_rating': forms.NumberInput(attrs={
+            #     'class': 'form-control',
+            # }),
+            'image': forms.FileInput(attrs={
+                'type': 'file',
+                'class': 'choose-avatar',
+                'id': 'image_film',
+            }),
+        }

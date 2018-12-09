@@ -7,7 +7,6 @@
     <div class="header-film row">
       <h4 class="p-0 m-0 name-film">Profile</h4>
     </div>
-
     <div class="header-film row">
       <form class="login">
         <div class="form-group row">
@@ -27,17 +26,19 @@
         <div class="form-group row">
           <label class="col-sm-4 col-form-label login">Avatar</label>
           <div class="col-sm-5">
-            <img src="{% get_media_prefix %}{{ request.user.avatar }}" class="avatar">
+            {% if request.user.avatar %}
+              <img src="{% get_media_prefix %}{{ request.user.avatar }}" class="avatar">
+            {% else %}
+              <img src="{% static "img/ketnipz.png" %}" class="avatar">
+            {% endif %}
           </div>
         </div>
         <div class="p-0 m-0 form-group row">
-          <a class="but but-pretty" href="{% url "settings" %}">Settings</a>
+          <a class="but but-pretty" href="{% url 'settings' %}">Settings</a>
         </div>
       </form>
     </div>
-
     <div class="line-separator"></div>
-
     <h4 class="p-0 m-0 name-film">Favorites</h4>
     {% for film in films %}
       {% include 'cardfilm.html' %}

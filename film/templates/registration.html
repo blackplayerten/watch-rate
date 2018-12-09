@@ -35,8 +35,9 @@
           </div>
         {% endfor %}
         <input type="hidden" name="next" value="{{ next }}"/>
-        <div class="col-sm-5 form-group row">
+        <div class="form-group row">
           <button class="but but-pretty" type="submit">Register</button>
+          <a class="but" href="{% url 'login' %}">I've already have account</a>
         </div>
       </form>
     </div>

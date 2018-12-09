@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, FormMixin
+from film import forms
 from film.forms import LoginForm, CreateAccount, SettingsForm
 from film.models import Film, User
 
@@ -18,18 +19,29 @@ class IndexView(TemplateView):
         return super(IndexView, self).get(request, *args, **kwargs)
 
 
-class FilmsView(LoginRequiredMixin, ListView):
+class FilmsView(LoginRequiredMixin, ListView, FormMixin):
     login_url = reverse_lazy('login')
-
     model = Film
     paginate_by = 10
     template_name = 'films.html'
     queryset = model.objects.order_by('name')
+    form_class = forms.AddFilmForm
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['top_films'] = Film.objects.all().order_by('-user_rating')[:5]
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = forms.AddFilmForm
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            new_film = form.save(commit=True)
+            return JsonResponse({
+                'href': reverse('film', kwargs={'slug': new_film.slug}),
+            })
+        return JsonResponse({
+            'errors': form.errors,
+        }, status=400)
 
 
 class FilmView(LoginRequiredMixin, DetailView):
@@ -68,11 +80,6 @@ class SettingsView(UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
-
-    # def form_valid(self, form):
-    #     clean = form.cleaned_data
-    #     self.object = form.save(clean)
-    #     return super(SettingsView, self).form_valid(form)
 
 
 class ProfileView(LoginRequiredMixin, TemplateView):
