@@ -1,6 +1,17 @@
 from django.core import validators
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils.datetime_safe import datetime
+
+
+def is_valid_year(val):
+    if not 1800 < val < datetime.today().year + 10:
+        raise validators.ValidationError('Year should be real')
+
+
+def is_valid_age(val):
+    if not 0 <= val <= 21:
+        raise validators.ValidationError('Year should be real')
 
 
 class User(AbstractUser):
@@ -8,22 +19,27 @@ class User(AbstractUser):
     favorite_films = models.ManyToManyField(to='Film')
 
 
+User._meta.get_field('email')._unique = True
+
+
 class Film(models.Model):
     name = models.TextField()
     slug = models.SlugField()
     producer = models.ManyToManyField(to='Person', related_name='m2m_producers')
-    year = models.DateField()
+    year = models.IntegerField(validators=[is_valid_year])
     country = models.ManyToManyField(to='Country')
     genre = models.ManyToManyField(to='Genre')
     actors = models.ManyToManyField(to='Person', related_name='m2m_actors')
-    age = models.IntegerField(blank=True, null=True)
+    age = models.IntegerField(blank=True, null=True, validators=[is_valid_age])
     time = models.CharField(max_length=16)
-    user_rating = models.IntegerField(blank=True, null=True)
+    user_rating = models.IntegerField(blank=True, default=1)
     plot = models.TextField(blank=True)
     image = models.ImageField(blank=True, null=True, upload_to='img')
 
     def __str__(self):
         return self.name
+
+
 
 
 class Person(models.Model):

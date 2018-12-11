@@ -1,7 +1,6 @@
 from django.contrib.auth.forms import AuthenticationForm, UsernameField, UserCreationForm, UserChangeForm
 from django import forms
 from django.utils.text import slugify
-
 from . import models
 
 
@@ -144,8 +143,8 @@ class SettingsForm(forms.ModelForm):
 class AddFilmForm(forms.ModelForm):
     name = forms.CharField(
         label='Name',
-        min_length=4,
         max_length=100,
+        widget=forms.TextInput(attrs={'class': 'required-field'}),
     ),
 
     producer = forms.ModelMultipleChoiceField(
@@ -180,11 +179,6 @@ class AddFilmForm(forms.ModelForm):
         }),
         required=False,
     )
-    # user_rating = forms.IntegerField(
-    #     label='User rating',
-    #     max_value=10,
-    #     required=False,
-    # ),
 
     def save(self, commit=True):
         film = super().save(commit)
@@ -200,7 +194,7 @@ class AddFilmForm(forms.ModelForm):
             'name': forms.TextInput(attrs={
                 'class': 'form-control',
             }),
-            'year': forms.DateInput(attrs={
+            'year': forms.NumberInput(attrs={
                 'class': 'form-control',
             }),
             'country': forms.TextInput(attrs={
@@ -221,9 +215,6 @@ class AddFilmForm(forms.ModelForm):
             'plot': forms.TextInput(attrs={
                 'class': 'form-control',
             }),
-            # 'user_rating': forms.NumberInput(attrs={
-            #     'class': 'form-control',
-            # }),
             'image': forms.FileInput(attrs={
                 'type': 'file',
                 'class': 'choose-avatar',

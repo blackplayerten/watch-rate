@@ -62,9 +62,8 @@ h2 {
 .user-name{
   margin-top: 3px;
   line-height: 20px;
-  font-weight: bold;
   font-size: 14px;
-  color: #ffeff2 !important;
+  color: #ffffff !important;
   font-family: 'Futura', sans-serif;
 }
 
@@ -77,11 +76,10 @@ h2 {
 .user-item{
   line-height: 20px;
   font-size: 14px;
-  font-weight: lighter;
-  color: #f8f8ff !important;
-  font-family: 'Futura', sans-serif;
+  font-weight: lighter ;
+  color: #eed4e1 !important;
+  font-family: 'Actor', sans-serif;
 }
-
 .user-item:hover{
   text-decoration: none;
   outline: none !important;
@@ -98,7 +96,7 @@ h2 {
 }
 
 .name-film {
-  font-weight: bold;
+  font-weight: normal;
   margin-right: 15px;
   text-decoration: none;
   color: #264d70 !important;
@@ -197,7 +195,7 @@ h2 {
 .login {
   width: 300px;
   text-align: left;
-  color: #4682b4;
+  color: #316895;
   font-weight: bold;
 }
 
@@ -207,16 +205,131 @@ h2 {
   border-radius: 10px;
   width: 200px;
   background-color: #fffafa;
-
 }
 
 #staticLogin:focus {
-  color: #ffffff;
   outline: none !important;
   box-shadow: none !important;
 }
 
 #email:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_name {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_name:focus {
+  background-color: #fffafa;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_year {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_year:focus {
+  background-color: #fffafa;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_producer {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_producer:focus {
+  background-color: #fffafa;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_country {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_country:focus {
+  background-color: #fffafa;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_genre {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_genre:focus {
+  background-color: #fffafa;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_actors {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_actors:focus {
+  background-color: #fffafa;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_age {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_age:focus {
+  background-color: #fffafa;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_time {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_time:focus {
+  background-color: #fffafa;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#id_plot {
+  outline: none !important;
+  box-shadow: 0 0 1px #ffffff;
+  border-radius: 10px;
+  background-color: #fffafa;
+}
+
+#id_plot:focus {
+  background-color: #fffafa;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -232,11 +345,11 @@ h2 {
   height: 40px;
   padding: 8px;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 14px;
   color: #5b80b2;
   background-color: #ffffff;
-  font-family: sans-serif;
-  font-weight: 400;
+  font-family: Futura, sans-serif;
+  font-weight: 200 !important;
   white-space: nowrap;
   border: none;
 }
@@ -248,14 +361,13 @@ h2 {
 }
 
 .but:focus {
-  /*box-shadow: 0 0 1px #ffffff !important;*/
   outline: none;
 }
 
 .but-pretty {
   color: #ffffff !important;
   border: 1px solid #fcb9bf;
-  background-color: #ff907f;
+  background-color: #ee7465;
 }
 
 .choose-avatar {
@@ -293,14 +405,14 @@ h2 {
 }
 
 .errors {
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #ff838e !important;
-  font-family: sans-serif;
-  font-weight: 400;
+  margin-bottom: 15px;
+  color: #ee5666;
+  font-weight: 100 !important;
+  font-family: 'Futura', sans-serif;
 }
 
 .film_form {
-  color: #4682b4;
-  font-weight: bold;
+  color: #274d70;
+  font-weight: normal;
+  font-family: Futura, sans-serif;
 }
