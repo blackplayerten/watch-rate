@@ -1,13 +1,15 @@
+import json
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
 from django.views.generic.edit import UpdateView, FormMixin
 from film import forms
 from film.forms import LoginForm, CreateAccount, SettingsForm
-from film.models import Film, User
+from film.models import Film, User, FavoriteFilms
 
 
 class IndexView(TemplateView):
@@ -49,6 +51,25 @@ class FilmView(LoginRequiredMixin, DetailView):
     login_url = reverse_lazy('login')
     model = Film
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        film = Film.objects.get(slug=self.kwargs['slug'])
+        context['fav'] = FavoriteFilms.objects.filter(uID=self.request.user, fID=film)
+        return context
+
+
+class AddToFavorites(LoginRequiredMixin, View):
+    login_url = reverse_lazy('login')
+
+    def post(self, request, slug, *args, **kwargs):
+        try:
+            FavoriteFilms.objects.get(fID__slug=slug).delete()
+        except FavoriteFilms.DoesNotExist:
+            film = Film.objects.get(slug=slug)
+            FavoriteFilms.objects.create(uID=request.user, fID=film)
+
+        return HttpResponse(status=200)
+
 
 class FilmLoginView(LoginView):
     template_name = 'login.html'
@@ -85,3 +106,8 @@ class SettingsView(UpdateView):
 class ProfileView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('login')
     template_name = 'profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['films'] = Film.objects.filter(favoritefilms__uID=self.request.user, )
+        return context

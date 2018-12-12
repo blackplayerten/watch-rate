@@ -14,17 +14,14 @@
         {% else %}
           <img class="img-fluid film-avatar" id="image_film" src="{% static "img/no_picture.png" %}" alt="">
         {% endif %}
-        {#        <form>#}
-        {#          <div class="rate-film-block">#}
-        {#            <input class="form-control but input-rating mr-sm-2" id="rating-input">#}
-        {#            <button class="but but-pretty" href="" type="button">Rate</button>#}
-        {#          </div>#}
-        {#        </form>#}
-        <form>
           <div class="rate-film-block">
-            <button class="but but-pretty" href="" type="button">Add to favorites</button>
+            {% csrf_token %}
+            {% if fav %}
+              <button class="but but-pretty delete-button" id="add_to_fav">Remove from favorites</button>
+            {% else %}
+              <button class="but but-pretty" id="add_to_fav">Add to favorites</button>
+            {% endif %}
           </div>
-        </form>
       </div>
 
       <div class="table-film-block">
@@ -82,3 +79,7 @@
     </div>
   </div>
 {% endblock content %}
+
+{% block extra_scripts %}
+  <script src="{% static "js/add_to_fav.js" %}"></script>
+{% endblock extra_scripts %}

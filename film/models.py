@@ -2,6 +2,7 @@ from django.core import validators
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.datetime_safe import datetime
+from django.utils.translation import gettext_lazy as _
 
 
 def is_valid_year(val):
@@ -16,15 +17,12 @@ def is_valid_age(val):
 
 class User(AbstractUser):
     avatar = models.ImageField(blank=True, upload_to='img')
-    favorite_films = models.ManyToManyField(to='Film')
-
-
-User._meta.get_field('email')._unique = True
+    email = models.EmailField(_('email address'), blank=False, unique=True)
 
 
 class Film(models.Model):
     name = models.TextField()
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     producer = models.ManyToManyField(to='Person', related_name='m2m_producers')
     year = models.IntegerField(validators=[is_valid_year])
     country = models.ManyToManyField(to='Country')
@@ -40,6 +38,12 @@ class Film(models.Model):
         return self.name
 
 
+class FavoriteFilms(models.Model):
+    uID = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    fID = models.ForeignKey(to=Film, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('uID', 'fID')
 
 
 class Person(models.Model):

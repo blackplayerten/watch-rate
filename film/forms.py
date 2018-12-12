@@ -43,7 +43,7 @@ class CreateAccount(UserCreationForm):
             'class': 'form-control',
             'placeholder': 'e-mail',
             'id': 'login-pass',
-        })
+        }),
     )
     password1 = forms.CharField(
         label='Password',
@@ -221,3 +221,7 @@ class AddFilmForm(forms.ModelForm):
                 'id': 'image_film',
             }),
         }
+
+
+# class AddFavorites(forms.ModelForm):
+    # add =
