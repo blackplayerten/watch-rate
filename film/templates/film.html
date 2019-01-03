@@ -8,20 +8,36 @@
       <h4 class="p-0 m-0 name-film">{{ film.name }}</h4>
     </div>
     <div class="row">
-      <div>
+      <div class="functional">
         {% if film.image %}
           <img class="img-fluid film-avatar" id="image_film" src="{% get_media_prefix %}{{ film.image }}" alt="">
         {% else %}
           <img class="img-fluid film-avatar" id="image_film" src="{% static "img/no_picture.png" %}" alt="">
         {% endif %}
-          <div class="rate-film-block">
-            {% csrf_token %}
-            {% if fav %}
-              <button class="but but-pretty delete-button" id="add_to_fav">Remove from favorites</button>
-            {% else %}
-              <button class="but but-pretty" id="add_to_fav">Add to favorites</button>
-            {% endif %}
-          </div>
+        <div class="rate-film-block">
+          {% csrf_token %}
+          {% if fav %}
+            <button class="but but-pretty delete-button" id="add_to_fav">Remove from favorites</button>
+          {% else %}
+            <button class="but but-pretty" id="add_to_fav">Add to favorites</button>
+          {% endif %}
+        </div>
+        <div class="rate-film-block">
+          <button class="but" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                  aria-controls="collapseExample">Who added it too?
+          </button>
+        </div>
+        <div class="collapse" id="collapseExample">
+          {% for user in user_list %}
+            <ul class="who-added">
+              <li class="who-added-content">
+                <p class="who-added-content">{{ user.username }}</p>
+              </li>
+            </ul>
+          {% empty %}
+            <h1 class="error-users">There are no users who have added this movie to themselves, but you can be the first</h1>
+          {% endfor %}
+        </div>
       </div>
 
       <div class="table-film-block">

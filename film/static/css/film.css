@@ -15,15 +15,15 @@ h2 {
   text-align: center;
   font-weight: lighter !important;
   font-family: "Futura", sans-serif; !important;
-  color: #264d70 !important;
+  color: #0c5460 !important;
 }
 
 .navbar-color {
-  background-color: #4682b4;
+  background-color: #0c5460;
 }
 
 .site-color {
-  background-color: #f7fcff;
+  background-color: #e6fdff;
 }
 
 .head-site {
@@ -97,9 +97,8 @@ h2 {
 
 .name-film {
   font-weight: normal;
-  margin-right: 15px;
   text-decoration: none;
-  color: #264d70 !important;
+  color: #0c5460 !important;
   font-family: 'Futura', sans-serif;
 }
 
@@ -117,6 +116,10 @@ h2 {
   line-height: 20px;
 }
 
+.functional {
+  width: 150px;
+}
+
 .film-avatar {
   display: flex;
   justify-content: center;
@@ -129,8 +132,7 @@ h2 {
 
 .rate-film-block {
   display: flex;
-  justify-content: left;
-  align-items: center;
+  justify-content: center;
   margin-left: 10px;
   margin-top: 10px;
 }
@@ -138,6 +140,7 @@ h2 {
 .table-film-block {
   display: flex;
   justify-content: left;
+  margin-left: 20px;
   max-width: 500px;
 }
 
@@ -149,13 +152,13 @@ h2 {
 }
 
 .info-film-left {
-  border-radius: 10px;
-  background-color: #fffafa;
+  border-radius: 20px;
   padding: 8px;
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   color: black;
-  font-family: sans-serif;
+  font-family: Futura,sans-serif;
+  font-weight: bolder;
 }
 
 .info-film-right {
@@ -180,7 +183,7 @@ h2 {
 
 .link-watch-rate {
   text-decoration: none;
-  color: #264d70 !important;
+  color: #0c5460 !important;
   font-weight: bold;
   border-color: black;
   font-family: 'Futura', sans-serif;
@@ -195,7 +198,7 @@ h2 {
 .login {
   width: 300px;
   text-align: left;
-  color: #316895;
+  color: #0c5460;
   font-weight: bold;
 }
 
@@ -336,7 +339,7 @@ h2 {
 
 .form-control:focus {
   box-shadow: 0 0 1px;
-  border-color: #264d70 !important;
+  border-color: #0c5460 !important;
 }
 
 .but {
@@ -346,7 +349,7 @@ h2 {
   padding: 8px;
   border-radius: 10px;
   font-size: 14px;
-  color: #5b80b2;
+  color: #0c5460;
   background-color: #ffffff;
   font-family: Futura, sans-serif;
   font-weight: 200 !important;
@@ -355,9 +358,10 @@ h2 {
 }
 
 .but:hover {
+  background-color: #e3ffff;
   outline: none !important;
   color: inherit;
-  text-decoration:none;
+  text-decoration: underline #0c5460;
 }
 
 .but:focus {
@@ -368,6 +372,13 @@ h2 {
   color: #ffffff !important;
   border: 1px solid #fcb9bf;
   background-color: #ee7465;
+}
+
+.but-pretty:hover {
+  background-color: #ee7465;
+  outline: none !important;
+  color: inherit;
+  text-decoration: underline #ffffff;
 }
 
 .choose-avatar {
@@ -412,7 +423,32 @@ h2 {
 }
 
 .film_form {
-  color: #274d70;
+  color: #0c5460;
   font-weight: normal;
   font-family: Futura, sans-serif;
+}
+
+ul.who-added {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.who-added-content {
+  padding: 5px;
+  color: #0c5460;
+  line-height: 20px;
+  font-size: 14px;
+  font-family: 'Actor', sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  list-style-type: none;
+}
+
+.error-users {
+  margin-bottom: 15px;
+  color: #ee5666;
+  font-weight: 100 !important;
+  font-size: 12px;
+  text-align: center;
+  font-family: 'Futura', sans-serif;
 }

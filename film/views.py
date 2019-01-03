@@ -1,5 +1,3 @@
-import json
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
@@ -109,5 +107,5 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['films'] = Film.objects.filter(favoritefilms__uID=self.request.user, )
+        context['films'] = Film.objects.filter(favoritefilms__uID=self.request.user)
         return context

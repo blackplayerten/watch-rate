@@ -222,6 +222,3 @@ class AddFilmForm(forms.ModelForm):
             }),
         }
 
-
-# class AddFavorites(forms.ModelForm):
-    # add =

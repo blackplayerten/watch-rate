@@ -65,26 +65,10 @@
       {% for film in film_list %}
         {% include 'cardfilm.html' %}
       {% empty %}
-        <h1 class="errors">Пока в каталоге нет фильмов, но вы можете добавить их</h1>
+        <h1 class="errors">There are no films in the catalog yet, but you can add them</h1>
       {% endfor %}
     </div>
   </div>
-  {#  <div class="col-md-3 col-lg-2">#}
-  {#    <div class="right-block">#}
-  {#      <div class="film-block">#}
-  {#        <div class="card-body card-body-watched">#}
-  {#          <h5 class="last-watched-block-text" href="">Top films</h5>#}
-  {#          <ul class="last-watched">#}
-  {#            {% for film in top_films %}#}
-  {#              <li class="in-last-watched">#}
-  {#                <a class="la-watch" href="{% url 'film' film.slug %}">{{ film.name }}</a>#}
-  {#              </li>#}
-  {#            {% endfor %}#}
-  {#          </ul>#}
-  {#        </div>#}
-  {#      </div>#}
-  {#    </div>#}
-  {#  </div>#}
 {% endblock content %}
 
 {% block extra_scripts %}
