@@ -31,7 +31,9 @@
           {% for user in user_list %}
             <ul class="who-added">
               <li class="who-added-content">
-                <p class="who-added-content">{{ user.username }}</p>
+{#                <p class="who-added-content">#}
+                  {{ user.uID.username }}
+{#                </p>#}
               </li>
             </ul>
           {% empty %}

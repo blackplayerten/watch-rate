@@ -53,6 +53,7 @@ class FilmView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         film = Film.objects.get(slug=self.kwargs['slug'])
         context['fav'] = FavoriteFilms.objects.filter(uID=self.request.user, fID=film)
+        context['user_list'] = FavoriteFilms.objects.filter(fID=film)
         return context
 
 
@@ -61,7 +62,7 @@ class AddToFavorites(LoginRequiredMixin, View):
 
     def post(self, request, slug, *args, **kwargs):
         try:
-            FavoriteFilms.objects.get(fID__slug=slug).delete()
+            FavoriteFilms.objects.get(uID=request.user, fID__slug=slug).delete()
         except FavoriteFilms.DoesNotExist:
             film = Film.objects.get(slug=slug)
             FavoriteFilms.objects.create(uID=request.user, fID=film)

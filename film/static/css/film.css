@@ -429,8 +429,7 @@ h2 {
 }
 
 ul.who-added {
-  margin-left: 0px;
-  padding-left: 0px;
+  margin: 0;
 }
 
 .who-added-content {
