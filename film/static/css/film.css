@@ -452,3 +452,54 @@ ul.who-added {
   text-align: center;
   font-family: 'Futura', sans-serif;
 }
+
+.page-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.page-list__item {
+  margin: 0 10px;
+  color: #0c5460;
+  background-color: #fffafe;
+  outline: none;
+  border: 1px solid #fcb9bf;
+  border-radius: 5px;
+  width: 40px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-list__item:hover {
+  margin: 0 10px;
+  background-color: #fffafe;
+  outline: none;
+  border: 1px solid #fcb9bf;
+  border-radius: 5px;
+  width: 40px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-list__page {
+  color: #0c5460;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Futura', sans-serif;
+  text-decoration: none;
+}
+
+.page-list__page1 {
+  color: #0c5460;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Futura', sans-serif;
+  text-decoration: none;
+}
